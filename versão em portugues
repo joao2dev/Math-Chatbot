@@ -1,0 +1,51 @@
+#voce pode adicionar mais pares de perguntas ao chatbot(isso me ajudaria muito e ficaria agradecido!!!)
+#antes veja se voce possui o nltk instalado
+
+from nltk.chat.util import Chat, reflections
+from time import sleep
+import signal
+#na variavel pares sera onde voce vai poder adicionar perguntas e respostas.
+pares = [
+    [
+        r"(oi|ola|opa)",
+        ["Olá! Como posso ajudar?"]
+    ],
+    [
+        r"Preciso que me ajude!|ajuda",
+        ["Claro, estou aqui para ajudar com operações matemáticas. Digite suas operações."]
+    ],
+
+]
+#aqui e parte do codigo que faz as perguntas fucionarem!!!
+def inico():
+    print("Inicie uma conversa com uma saudação:")
+    print('se deseja a resoluçao de calculo digite "ajuda")
+    chat = Chat(pares, reflections)
+    while True:
+        user_input = input("> ")
+        if user_input.lower() in ['quit', 'sair']:
+            print("Até mais!")
+            break
+        response = chat.respond(user_input)
+        print(response)
+        if response == "Claro, estou aqui para ajudar com operações matemáticas. Digite suas operações.":
+            calculos()
+          #aqui e a areas dos calculos(estou trabalhando nas perguntas teorica)
+          #se quiser adicionar as perguntas teoricas aos pares fique a vontade!!!
+def calculos():
+    while True:
+        expressao = input("Digite a operação matemática (ou 'sair' para voltar): ")
+
+        if expressao.lower() == 'sair':
+            break
+        try:
+            resultado = eval(expressao)  # A função eval() avalia a string como uma expressão Python
+            print(f"Resultado: {resultado}")
+            sleep(10)
+            teoria = print('me mande uma pergunta teorica(digite "sair" para fazer a pergunta)')
+
+        except Exception as e:
+            print(f"Erro ao processar a operação: {e}")
+
+if __name__ == "__main__":
+    inico()
