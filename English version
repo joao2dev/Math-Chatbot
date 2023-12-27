@@ -1,0 +1,44 @@
+from nltk.chat.util import Chat, reflections
+
+# The pairs where you can add questions and answers.
+pairs = [
+    [
+        r"(hi|hello|hey)",
+        ["Hello! How can I help?"]
+    ],
+    [
+        r"I need your help!|help",
+        ["Of course, I'm here to assist with mathematical operations. Please enter your operations."]
+    ]
+]
+
+# This is the function where the conversation starts.
+def inico():
+    print("Start a conversation with a greeting:")
+    print('If you want to solve a calculation, type "help"')
+    chat = Chat(pairs, reflections)
+    while True:
+        user_input = input("> ")
+        if user_input.lower() in ['quit', 'exit']:
+            print("Goodbye!")
+            break
+        response = chat.respond(user_input)
+        print(response)
+        if response == "Of course, I'm here to assist with mathematical operations. Please enter your operations.":
+            calculos()
+
+# This function handles the calculations.
+def calculos():
+    while True:
+        expressao = input("Enter the mathematical operation (or 'exit' to return): ")
+        if expressao.lower() == 'exit':
+            break
+        try:
+            resultado = eval(expressao)
+            print(f"Result: {resultado}")
+            print("Enter 'exit' to return or continue with your mathematical operations.")
+        except Exception as e:
+            print(f"Error processing the operation: {e}")
+
+if __name__ == "__main__":
+    inico()
