@@ -7,15 +7,48 @@ import signal
 #na variavel pares sera onde voce vai poder adicionar perguntas e respostas.
 pares = [
     [
-        r"(oi|ola|opa)",
+        r"(oi|olá|opa)",
         ["Olá! Como posso ajudar?"]
     ],
     [
         r"Preciso que me ajude!|ajuda",
-        ["Claro, estou aqui para ajudar com operações matemáticas. Digite suas operações."]
+        ["Claro, estou aqui para ajudar com operações matemáticas ou responder a algumas perguntas teóricas de matemática. Por favor, prossiga com suas perguntas."]
     ],
-
+    [
+        r"O que e o problema de Collatz?",
+        ["O problema de Collatz, também referido como conjectura de Collatz, é uma questão matemática não resolvida que postula que, para qualquer número inteiro positivo n, seguindo uma série de regras específicas (par, divida por 2; ímpar, multiplique por 3 e adicione 1), a sequência resultante sempre chegará ao número 1."]
+    ],
+    [
+        r"Explique a Conjectura de Collatz?",
+        ["A Conjectura de Collatz é uma hipótese matemática que sugere que, ao aplicar regras específicas a um número inteiro positivo (par → divida por 2; ímpar → multiplique por 3 e adicione 1), a sequência eventualmente convergirá para 1."]
+    ],
+    # Mais pares de perguntas teóricas adicionadas
+    [
+        r"O que é a Sequência de Fibonacci?",
+        ["A Sequência de Fibonacci é uma série numérica em que cada número é a soma dos dois anteriores. Começa com 0 e 1, e os próximos números são sempre a soma dos dois números anteriores: 0, 1, 1, 2, 3, 5, 8, 13, ..."]
+    ],
+    [
+        r"O que é um número primo?",
+        ["Um número primo é um número natural maior que 1 que tem apenas dois divisores: 1 e ele mesmo. Por exemplo, 2, 3, 5, 7 são números primos, pois são divisíveis apenas por 1 e por eles mesmos."]
+    ],
+    [
+        r"Explique o Teorema de Pitágoras.",
+        ["O Teorema de Pitágoras estabelece que, em um triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos. Matematicamente, a² + b² = c², onde 'c' é a hipotenusa e 'a' e 'b' são os catetos."]
+    ],
+    [
+        r"O que é a Integral Definida?",
+        ["A Integral Definida é uma operação da Cálculo que determina a área sob uma curva entre dois pontos específicos. Matematicamente, é representada como ∫f(x) dx de 'a' a 'b', onde 'f(x)' é a função e 'a' e 'b' são os limites de integração."]
+    ],
+    [
+        r"Explique o que são números imaginários.",
+        ["Números imaginários são números que podem ser expressos na forma a + bi, onde 'a' e 'b' são números reais, e 'i' é a unidade imaginária (√-1). Eles desempenham um papel fundamental em áreas como a álgebra e a engenharia elétrica."]
+    ],
+    [
+        r"O que é o Teorema Fundamental do Cálculo?",
+        ["O Teorema Fundamental do Cálculo estabelece uma relação entre derivadas e integrais, conectando duas das principais operações do cálculo. Ele afirma que a derivada de uma integral definida de uma função é a própria função."]
+    ]
 ]
+
 #aqui e parte do codigo que faz as perguntas fucionarem!!!
 def inico():
     print("Inicie uma conversa com uma saudação:")
